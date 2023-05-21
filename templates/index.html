@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body%}
+<h1 class="text-center">Todo App</h1>
+
+<div class="container">
+    <div  class="my-5">
+        <form action="/home" method="post">
+            <input type="text" name="title" placeholder="Enter a title">
+            <input type="submit" value="Add Todo" class="btn btn-success">
+        </form>
+    </div>
+    <div >
+        {% for todo in data %}
+    
+            <h5> {{todo.id}} <span>--</span> {{todo.title}}</h5>
+            <div class="mb-4">
+                <a href="/remove/{{todo.id}}" class="btn btn-danger" >Delete</a>
+                <a href="/update/{{todo.id}}" class="btn btn-warning" >Update</a>
+            </div>
+            <div>
+                
+            </div>
+
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock body %}
+
+
